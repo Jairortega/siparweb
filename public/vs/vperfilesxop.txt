@@ -1,0 +1,38 @@
+DROP VIEW `vperfilesxop`;
+
+create view `vperfilesxop` as 
+SELECT perfiles_xopcion.id_perfil id_perfil, perfil,
+       opciones.grupo grupo, gnombre, 
+       perfiles_xopcion.id_opcion id_opcion, opcion,
+	   name_objeto, consulta, rep_pdf, rep_csv, rep_txt,
+	   p_insertar,
+       case 
+          when p_insertar = 1 then 'SI'
+          else 'NO' end AS insertar, 	   
+	   p_modificar, 
+       case 
+          when p_modificar = 1 then 'SI'
+          else 'NO' end AS modificar, 
+	   p_borrar, 
+	   case 
+          when p_borrar = 1 then 'SI'
+          else 'NO' end AS borrar, 
+	   r_pdf, 
+	   case 
+          when r_pdf = 1 then 'SI'
+          else 'NO' end AS pdf, 	   
+	   r_csv, 
+	   case 
+          when r_csv = 1 then 'SI'
+          else 'NO' end AS csv, 	   
+	   r_txt,
+	   case 
+          when r_txt = 1 then 'SI'
+          else 'NO' end AS txt	   
+FROM perfiles_xopcion
+LEFT JOIN perfiles
+ON perfiles_xopcion.id_perfil = perfiles.id_perfil
+LEFT JOIN opciones
+ON perfiles_xopcion.id_opcion = opciones.id_opcion
+LEFT JOIN grupos_menu
+ON opciones.grupo = grupos_menu.grupo	

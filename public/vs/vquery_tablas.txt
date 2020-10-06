@@ -1,0 +1,9 @@
+
+DROP VIEW `vquery_tablas`;
+
+create view `vquery_tablas` as 
+SELECT id_query, q.id_crud, des_crud, table_name, condicion, valor1, valor2,
+       q.created_at created_at, q.updated_at updated_at
+FROM query_tablas q
+LEFT JOIN crud
+ON q.id_crud = crud.id_crud;

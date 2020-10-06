@@ -1,0 +1,41 @@
+DROP VIEW vbce_ingresos;
+
+create view vbce_ingresos as 
+select mvpa.id_parque id_parque, par.cc_user cc_user, par.cod_gr_parque,
+  des_parque, nit_parque, id_regimen, dir_parque, tel_parque, mail_parque, 
+  cod_dc_parque, latitud_parque, longitud_parque, estado_parque, 
+  mvpa.forma_pago forma_pago, 
+  (case when mvpa.forma_pago = 0 
+       then "TARJETA" 
+       else "EFECTIVO"			
+       end) AS `des_fpago`, 
+  (case when mvpa.tipo_vehiculo = 1 
+       then "CARRO" 
+       else (case when mvpa.tipo_vehiculo = 2 
+       then "MOTO" 
+       else "BICICLETA"
+        END)	   
+       end) AS `des_tvehiculo`, 
+  mvpa.id_reserva id_reserva,
+  par.fecha_desde fecha_desde, par.fecha_hasta fecha_hasta,
+  adm.cc_admon cc_admon, adm.nom_admon nom_admon,
+  adm.cod_dc_admon cod_dc_admon, adm.cod_bco_admon cod_bco_admon,
+  adm.ncuenta_admon ncuenta_admon, adm.tcuenta_admon tcuenta_admon,  
+  mvpa.fecha_ingreso fecha_ingreso, mvpa.fecha_salida fecha_salida,
+  mvpa.vr_liquidado vr_liquidado, mvpa.vr_iva vr_iva,
+  (mvpa.vr_liquidado - mvpa.vr_iva) vr_neto,
+  mvpa.cc_user_e cc_user_e, mvpa.cc_user_s cc_user_s, 
+  usue.name usuario_e, usus.name usuario_s 
+FROM mov_parqueos mvpa
+LEFT JOIN parqueaderos par
+ON (mvpa.id_parque = par.id_parque
+    and mvpa.fecha_ingreso >= par.fecha_desde
+	and mvpa.fecha_ingreso <= par.fecha_hasta)
+LEFT JOIN administradores adm
+ON par.cc_user = adm.cc_admon
+LEFT JOIN users usue
+ON mvpa.cc_user_e = usue.cc_user
+LEFT JOIN users usus
+ON mvpa.cc_user_s = usus.cc_user
+WHERE mvpa.vr_liquidado > 0;   
+

@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#vrs {
+    margin-top: 70px;
+    margin-left: 280px;
+    text-align: center;
+    width: 670px;
+    position: absolute;
+    background-color: rgba(151, 170, 190, 0.2);
+    border-radius: 5px;
+    position: fixed;
+    display: inline-block;
+}
+
+h3 {
+    text-align: center;
+    border-radius: 5px;
+    color: #FFF;
+    font-size: 14px;
+    background-color: rgba(151, 170, 190, 0.2);
+}
+
+#titulo1 {
+    font-size: 35px;
+    color: #FFF;
+    background-color: rgba(151, 170, 190, 0.2);
+}
+
+#titulo3 {
+    font-size: 30px;
+    color: #FFF;
+    background-color: rgba(151, 170, 190, 0.2);
+}
+
+#seccion {
+    display: block;
+    height: 450px;
+    width: 100%;
+    max-width: 1600px;
+    background-color: #CCC;
+    background-image: url("../img/parqueo_jo3.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#seccion img {
+    width: 100%;
+    height: auto;
+}
+
+header nav {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0px auto;
+    background: #3399FF;
+}
+
+.menu_bar {
+    display: none;
+    border-bottom: #3399FF 1px solid;
+}
+
+header nav ul {
+    overflow: hidden;
+    list-style: none;
+}
+
+header nav ul li {
+    float: right;
+}
+
+header nav ul li a {
+    color: #fff;
+    padding: 20px;
+    display: block;
+    margin-right: 40px;
+    text-decoration: none;
+}
+
+header nav ul li span {
+    margin-right: 5px;
+}
+
+header nav ul li a:hover {
+    background: rgb(53, 225, 255);
+}
+
+
+/*
+#imagen-group {
+    position: absolute;
+    display: inline;
+    padding: 1px;
+}
+*/
+
+#pie {
+    bottom: 0px;
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    text-align: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+nav div h3 {
+    color: #FFF;
+}
+
+.nav-item2 {
+    overflow: hidden;
+    list-style: none;
+}
+
+.nav-item2 a {
+    color: #FFF;
+}
+
+#siparweb {
+    color: #FFF;
+    padding: 10px;
+    font-size: 25px;
+    width: 630px;
+}
+
+#servicio {
+    color: #FFF;
+    padding: 4px;
+    font-size: 14px;
+    width: 180px;
+    text-align: auto;
+}
+
+
+/*
+#siparweb2 {
+    color: #FFF;
+    padding: 20px;
+    font-size: 12px;
+    width: 400px;
+}
+*/
+
+
+/*
+p[id="p1"] {
+    text-align: center;
+    width: 100%;
+    margin-top: 135px;
+    color: rgb(240, 243, 66);
+    font-size: 35px;
+    padding-bottom: 20px;
+}
+
+p[id="p2"] {
+    text-align: center;
+    padding: 0px;
+    margin-top: 2px;
+    color: rgb(240, 243, 66);
+    font-size: 30px;
+    font-style: normal;
+}
+*/
+
+@media screen and (max-width:900px) {
+    header nav {
+        width: 90%;
+        height: 70%;
+        left: -100%;
+        margin: 0;
+        margin-top: 20px;
+        position: fixed;
+    }
+    header nav ul li {
+        display: block;
+        float: none;
+        border-bottom: 1px solid rgba(255, 255, 255, .3);
+    }
+    .menu_bar {
+        display: block;
+        width: 100%;
+        background: #ccc;
+    }
+    .menu_bar .bt-menu {
+        display: block;
+        padding: 20px;
+        background: #3399FF;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 25px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .menu_bar span {
+        float: right;
+        font-size: 40px;
+    }
+    #siparweb {
+        display: none;
+    }
+    /*
+    #siparweb2 {
+        display: none;
+    } */
+    #vrs {
+        display: none;
+    }
+    #pie {
+        display: float;
+    }
+}

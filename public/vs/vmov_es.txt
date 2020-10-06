@@ -1,0 +1,29 @@
+
+drop view `ventradas`;
+
+CREATE VIEW `ventradas` as
+select id_parque, tipo_vehiculo,
+count(*) tot_e
+from mov_parqueos
+group by id_parque, tipo_vehiculo 
+
+
+
+drop view `vsalidas`;
+
+CREATE VIEW `vsalidas` as
+select id_parque, tipo_vehiculo,
+count(*) tot_s
+from mov_parqueos
+where vr_liquidado > 0
+group by id_parque, tipo_vehiculo 
+
+
+drop view `vreserpqs`;
+
+CREATE VIEW `vreserpqs` as
+select id_parque, tipo_vehiculo,
+count(*) tot_r
+from reservas
+where estado_reserva = 100
+group by id_parque, tipo_vehiculo 
